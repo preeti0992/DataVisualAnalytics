@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Crime Prediction</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    
+  
+  
+</head>
+<body>
+    <div id="main">
+        <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+                    <div class="row">
+                              <div class="col-md-2 columns">
+                              	<img src="static/res/handcuffs.png" class="app_icon">
+                              	<label>CrimeMapper</label>
+                              </div>
+                              <div class="col-md-2 columns" >
+                              	<div class="input-group" >
+                                 	<span class="input-group-addon transparent"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    <input data-date-format="mm/dd/yyyy" id="datepicker" class='date'>  
+                                </div>   
+                              </div>
+                              <div class="col-md-2 columns">
+                              	<div class="input-group">
+                              		<span class="glyphicon glyphicon-time" style="right: 2px;top: 4px;"></span>
+	                              	
+						            <input id="timepicker" type="text" class="time">
+					            </div>
+                              </div>
+                              <div class="col-md-2 columns">
+                              	<div class="form-group">
+                              		<label>Category: </label>
+                              		<select class="selection-select" name="crime" id="crimeSection">
+									  <option value="theft">Theft</option>
+									  <option value="other_offenses">Other Offenses</option>
+									  <option value="child_offense">Child Offense</option>
+									  <option value="sexual_crime">Sexual Crime</option>
+									  <option value="vehicle_theft">Vehicle Theft</option>
+									  <option value="deceptive_practice">Deceptive Practice</option>
+									  <option value="assault">Assault</option>
+									  <option value="narcotics">Narcotics</option>
+									  <option value="criminal_damage">Criminal Damage</option>
+									</select>
+								</div>
+                             </div>
+                             <div class="col-md-4 columns">
+                                <div class="input-group">
+                              		<button type="button" class="btn btn-lg btn-primary" style="font-size: 1em !important" value="Submit">Get Prediction</button>  
+					            </div>
+                             </div>
+                    </div>
+        </nav>
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 map-block">
+                <div class="row">
+                  <div class="col-sm-12">
+                      <div id = "map" style="width:100%;height:100vh;"></div>
+                  </div>
+                  </div>
+            </div>
+            </div>
+          </div>
+      </div>
+        
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+  integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+
+<script src="static/js/main.js"></script>
+<script src="static/js/client.js"></script>
+
+</html>

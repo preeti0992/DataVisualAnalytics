@@ -1,0 +1,161 @@
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  overflow-y:hidden;
+  overflow-x: hidden;
+
+}
+
+.navbar { padding: 0px 1rem;}
+.navbar .navbar-brand {
+  font-size: 14px;
+  color:#000;
+}
+
+.navbar .row { width:100%; }
+.navbar .row .columns { padding-top: 7px; }
+.navbar .form-group { padding-bottom: 7px; margin-bottom: 0px; }
+.navbar .form-group label { color: #000;}
+.navbar .form-group select { padding: 3px; }
+.map-block {padding-left:0px; padding-right:0px;}
+.padd-top-20 { padding-top: 15px; }
+
+
+.junk_charts {
+  
+  position:relative;
+  overflow: scroll;
+    height: 700px;
+}
+
+
+
+.main-column {font-size:14px;}
+.leaflet-left .leaflet-control {
+  margin-left: 25px;
+}
+
+.map-info { 
+  width: 90px; 
+}
+
+.datepicker {
+  z-index:1001 !important;
+}
+
+.transparent {
+    background-color: transparent !important;
+    box-shadow: inset 0px 1px 0 rgba(0,0,0,.075);
+ }
+ .left-border-none {
+    border-left:none !important;
+    box-shadow: inset 0px 1px 0 rgba(0,0,0,.075);
+ }
+ .input-group-addon {left:20px;top: 5px;}
+
+.app_icon{height: 35px;
+    width: 40px;}
+.app_icon2{height: 30px;
+    width: 55px;}
+
+    .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { font-size: 14px; margin: 0 0 5px; color: #777; } .info h4:first-letter {
+    text-transform:capitalize;
+}
+
+.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+
+
+html { font-size: 80.5%; } 
+
+    .heatmap_box {
+        font-size: 1rem;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        fill: #8C8C8C;
+        text-align: center;
+    }
+
+    .timeLabel, .dayLabel {
+        font-size: 1.9rem;
+        fill: #AAAAAA;
+        font-weight: 500;
+    }
+
+    text.axis-workweek, text.axis-worktime {
+        fill: #404040;
+        font-weight: 400;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        fill: #4F4F4F;
+        font-weight: 300;
+    }
+
+    .subtitle {
+        font-size: 2.0rem;
+        fill: #AAAAAA;
+        font-weight: 600;
+    }
+
+    .axis path, .axis tick, .axis line {
+          fill: none;
+          stroke: none;
+      }
+
+    text {
+          font-size: 2.0rem;
+          fill: #AAAAAA;
+          font-weight: 400;
+    }
+
+    .legendTitle {
+          font-size: 2.0rem;
+          fill: #4F4F4F;
+          font-weight: 300;
+    }
+
+.label{
+    text-align: left;
+}
+.accident-type{
+  border-radius: 4px;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background: #bfbfbf;
+  font-family: 'Roboto Condensed', 'Helvetica', 'Arial', sans-serif;
+  font-weight: normal;
+}
+.axis path, .axis line {
+  fill: none;
+  stroke: #bfbfbf;
+  stroke-width: 0.1px;
+  shape-rendering: crispEdges;
+}
+.browser text {
+  text-anchor: end;
+}
+.d3-tip {
+  line-height: 1;
+  font-weight: normal;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+button:focus {outline:0;}
